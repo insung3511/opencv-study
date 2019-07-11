@@ -1,2 +1,2 @@
-# opencv-study
-openCV 공부하는 거 올려아지 >&lt;
+# 왜 그랬을까요 
+왜 openCV를 한다고 했을까요..
