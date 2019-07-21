@@ -1,6 +1,7 @@
 # Face Detection (by openCV)
 개소리 없이 바로 코드 설명에 들어간다. 
-```import numpy as np
+``` python
+import numpy as np
 import cv2 as cv
 
 face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -22,3 +23,4 @@ cv.imshow('img', img)
 cv.waitKey(0)
 #cv.destoryAllWindows()
 ```
+일단 코드만 올린다. 색이 나오는지 확인을 해야해서..ㅎㅎㅎ
