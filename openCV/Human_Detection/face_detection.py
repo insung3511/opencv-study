@@ -4,7 +4,7 @@ import cv2 as cv
 face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv.CascadeClassifier('haarcascade_eye.xml')
 
-img = cv.imread("../../pictures/people.jpg")
+img = cv.imread("love.jpg")
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
