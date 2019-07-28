@@ -1,7 +1,7 @@
 import imutils
 from cv2 import cv2
 
-image = cv.imread("./pictures/people.jpg")
+image = cv2.imread("/Users/Bahk_InSung/Github/opencv-study/openCV/pictures/people.jpg")
 (h, w, d) = image.shape
 print("width={}, height={}, depth={}".format(w, h, d))
 
@@ -9,10 +9,10 @@ print("width={}, height={}, depth={}".format(w, h, d))
 print("R={}, G={}, B={}".format(R,G,B))
 
 output = image.copy()
-cv.line(output, (60, 20),         (900, 1200), (0, 0, 255), 5)
+cv2.line(output, (60, 20),         (900, 1200), (0, 0, 255), 5)
 #           start(X,   Y),      END(  X,    Y), (B, G,   R), STORKE)
-cv.imshow("Line", output)
-cv.waitKey(0)
+cv2.imshow("Line", output)
+cv2.waitKey(0)
 
-cv.imshow("opencv", image)
-cv.waitKey(0)
+cv2.imshow("opencv", image)
+cv2.waitKey(0)
