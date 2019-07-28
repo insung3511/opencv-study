@@ -1,10 +1,10 @@
-import numpy as np
+#import numpy as np
 import cv2 as cv
 
 face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv.CascadeClassifier('haarcascade_eye.xml')
 
-img = cv.imread("love.jpg")
+img = cv.imread("./human_detection/standing_person.jpg")
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
