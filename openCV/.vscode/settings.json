@@ -2,5 +2,5 @@
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "python.linting.pylintPath": "venv/bin/pylint",
-    "python.pythonPath": "/Users/Bahk_InSung/.virtualenvs/cv/bin/python",      
+    "python.pythonPath": "/usr/local/bin/python3",      
 }
