@@ -1,43 +1,42 @@
-import cv2
-import imutils
+import cv2 as cv
+import numpy as np 
+from matplotlib import pyplot as plt
 
-haar_upper_body_cascade = cv2.CascadeClassifier("data/haarcascade_upperbody.xml")
+path = "./human_detection/walking_person.jpg"
 
-# Uncomment this for real-time webcam detection
-# If you have more than one webcam & your 1st/original webcam is occupied,
-# you may increase the parameter to 1 or respectively to detect with other webcams, depending on which one you wanna use.
+think_1 = cv.imread('./' + path)
+grayThink_1 = cv.cvtColor(think_1, cv.COLOR_BGR2HSV)
 
-# video_capture = cv2.VideoCapture(0)
+think_2 = cv.imread('./' + path)
+grayThink_2 = cv.cvtColor(think_2, cv.COLOR_BGR2HSV)
 
-# For real-time sample video detection
-video_capture = cv2.VideoCapture("subway.mp4")
-video_width = video_capture.get(3)
-video_height = video_capture.get(4)
+think_3 = cv.imread('./' + path)
+grayThink_3 = cv.cvtColor(think_3, cv.COLOR_BGR2HSV)
 
-while True:
-    ret, frame = video_capture.read()
+body_cascade = cv.CascadeClassifier('haarcascade_fullbody.xml')
 
-    frame = imutils.resize(frame, width=600) # resize original video for better viewing performance
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) # convert video to grayscale
+#Think_1
+body = body_cascade.detectMultiScale(grayThink_1, 1.01, 10, minSize=(30, 30))
+for (x, y, w, h) in body:
+    cv.rectangle(think_1, (x, y), (x+w, y+h), (0, 0, 255), 3)
 
-    upper_body = haar_upper_body_cascade.detectMultiScale(
-        gray,
-        scaleFactor = 1.1,
-        minNeighbors = 5,
-        minSize = (50, 100), # Min size for valid detection, changes according to video size or body size in the video.
-        flags = cv2.CASCADE_SCALE_IMAGE
-    )
+plt.subplot(1, 3, 1)
+plt.imshow(think_1, cmap='gray')
 
-    # Draw a rectangle around the upper bodies
-    for (x, y, w, h) in upper_body:
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 1) # creates green color rectangle with a thickness size of 1
-        cv2.putText(frame, "Upper Body Detected", (x + 5, y + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2) # creates green color text with text size of 0.5 & thickness size of 2
-    cv2.imshow('Video', frame) # Display video
+#Think_2
+body = body_cascade.detectMultiScale(grayThink_2,1.01, 2, 0, minSize=(70, 70))
+for (x,y,w,h) in body :        
+    cv.rectangle(think_2,(x,y),(x+w,y+h),(0,0,255),3)
 
-    # stop script when "q" key is pressed
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+plt.subplot(1, 3, 2)
+plt.imshow(think_2, cmap='gray')
 
-# Release capture
-video_capture.release()
-cv2.destroyAllWindows()
+
+body = body_cascade.detectMultiScale(grayThink_3,1.01, 2, 0, minSize=(70, 70))
+for (x,y,w,h) in body :        
+    cv.rectangle(think_2,(x,y),(x+w,y+h),(0,0,255),3)
+
+plt.subplot(1, 3, 3)
+plt.imshow(think_2, cmap='gray')
+
+plt.show()
