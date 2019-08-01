@@ -2,11 +2,10 @@
 import numpy as np
 import cv2
  
-# initialize the HOG descriptor/person detector
 hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 cv2.startWindowThread()
-# open webcam video stream
+
 cap = cv2.VideoCapture('subway.mp4')
 while(True):
     ret, frame = cap.read()

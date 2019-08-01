@@ -6,7 +6,7 @@ eye_cascade = cv2.CascadeClassifier("haarcascade_eye.xml")
 img = cv2.imread("../pictures/people.jpg")
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-faces = face_cascade.detectMultiScale(gray, 1.5,5)
+faces = face_cascade.detectMultiScale(gray, 5.5,5)
 for (x, y, w, h) in faces:
     cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 2)
     roi_gray = gray[y:y+h, x:x+w]
