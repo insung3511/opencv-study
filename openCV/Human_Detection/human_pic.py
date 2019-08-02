@@ -25,6 +25,7 @@ for imagePath in paths.list_images('./human_detection'):
     #After__
 	for (xA, yA, xB, yB) in pick:
 		cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
+		cv2.imwrite('result.jpg', image)
 
 	filename = imagePath[imagePath.rfind("/") + 1:]
 	print("[INFO] {}: {} original boxes, {} after suppression".format(
