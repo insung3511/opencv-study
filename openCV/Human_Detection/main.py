@@ -1,20 +1,27 @@
 import cv2
+import time
+import numpy as np
+import imutils
+from imutils import paths
+from imutils.object_detection import non_max_suppression
 
-face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-eye_cascade = cv2.CascadeClassifier("haarcascade_eye.xml")
+start = time.time()
+hog = cv2.HOGDescriptor()
+hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
-img = cv2.imread("../pictures/people.jpg")
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+for imagePath in paths.list_images('./HO'):
+    image = cv2.imread(imagePath)
+    image = imutils.resize(image, width=min(400, image.shape[1]))
+    orig = image.copy()
 
-faces = face_cascade.detectMultiScale(gray, 5.5,5)
-for (x, y, w, h) in faces:
-    cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 2)
-    roi_gray = gray[y:y+h, x:x+w]
-    roi_color = img[y:y+h, x:x+w]
-    eyes = eye_cascade.detectMultiScale(roi_gray)
-    for (ex, ey, ew, eh) in eyes:
-        cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
+    (rects, weights) = hog.detectMultiScale(image, winStride=(4, 4), padding=(8, 8), scale=1.05)
 
-cv2.imshow('img', img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+    rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
+    pick = non_max_suppression(rects, probs=None, overlapThresh=0.65)
+
+    for (xA, yA, xB, yB) in pick:
+        cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
+        cv2.imwrite('result.jpg', image)
+
+    filename = imagePath[imagePath.rfind("/") + 1:] 
+print("time : ", time.time() - start)
