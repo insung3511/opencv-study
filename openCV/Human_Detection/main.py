@@ -23,5 +23,9 @@ for imagePath in paths.list_images('./HO'):
         cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
         cv2.imwrite('result.jpg', image)
 
+    cv2.imshow("result" ,image)
+    cv2.waitKey(0)
+
     filename = imagePath[imagePath.rfind("/") + 1:] 
+
 print("time : ", time.time() - start)
