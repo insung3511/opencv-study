@@ -1,8 +1,8 @@
 import numpy as np
 import cv2
 
-org_img = cv2.imread('images/ORGmy_room.jpg')
-fea_img = cv2.imread('images/PAGmy_room_box.jpg')
+org_img = cv2.imread('images/ORGwall_and_paper.jpg')
+fea_img = cv2.imread('images/PAGwall_and_paper.jpg')
 org_gray = cv2.cvtColor(org_img, cv2.COLOR_BGR2GRAY)
 fea_gray = cv2.cvtColor(fea_img, cv2.COLOR_BGR2GRAY)
 
