@@ -3,6 +3,7 @@ openCV를 깊이 다뤄 본적이 없는거 같아서 openCV를 다시 공부 �
 
 # Directory
 <pre>
+.
 ├── README.md
 └── openCV
     ├── Basic\ of\ Basic
@@ -48,7 +49,41 @@ openCV를 깊이 다뤄 본적이 없는거 같아서 openCV를 다시 공부 �
     │   ├── subway.mp4
     │   └── time.txt
     ├── feature_match
-    │   ├── feature_match_1img.py
+    │   ├── feature_book
+    │   │   ├── exam_feature_match.py
+    │   │   ├── feature_match.py
+    │   │   ├── feature_series
+    │   │   │   ├── bfm.py
+    │   │   │   └── images
+    │   │   │       ├── ORGgraffiti.jpg
+    │   │   │       ├── ORGmy_room.jpg
+    │   │   │       ├── ORGwall_and_paper.jpg
+    │   │   │       ├── PAGcarhartt_patch.jpg
+    │   │   │       ├── PAGmy_room_big.jpg
+    │   │   │       ├── PAGmy_room_box.jpg
+    │   │   │       ├── PAGwall_and_paper.jpg
+    │   │   │       ├── box.png
+    │   │   │       └── box_in_scene.png
+    │   │   ├── images
+    │   │   └── test_images
+    │   │       ├── ORGgraffiti.jpg
+    │   │       ├── ORGmy_room.jpg
+    │   │       ├── ORGwall_and_paper.jpg
+    │   │       ├── PAGcarhartt_patch.jpg
+    │   │       ├── PAGmy_room_big.jpg
+    │   │       ├── PAGmy_room_box.jpg
+    │   │       ├── PAGwall_and_paper.jpg
+    │   │       ├── box.png
+    │   │       └── box_in_scene.png
+    │   ├── feature_series
+    │   │   ├── README.md
+    │   │   ├── __pycache__
+    │   │   │   └── get_image.cpython-39.pyc
+    │   │   ├── bfm_and_sift.py
+    │   │   ├── flann_and_orb.py
+    │   │   ├── flann_and_sift.py
+    │   │   ├── flann_and_surf.py
+    │   │   └── get_image.py
     │   └── images
     │       ├── ORGgraffiti.jpg
     │       ├── ORGmy_room.jpg
@@ -62,9 +97,10 @@ openCV를 깊이 다뤄 본적이 없는거 같아서 openCV를 다시 공부 �
         ├── clothes.jpg
         └── rgb.png
 
-10 directories, 48 files
+17 directories, 75 files
 </pre>
- 
+Last Updated: Nov.7.2021
+
 # Basic of Basic
 <pre>
 ├── opencv_blur.py
@@ -127,11 +163,59 @@ human_detection 디렉토리 안에 있는 사진들은 사람 인식을 하기 
 Ps. 참고로 사실 해커톤에서는 Hog를 활용하여 Human Detection을 진행하진 못했다. 그 이유는 굉장히 낮은 인식율로 인해서 그러는데 그거에 대한 자세한 내용은 <a href="https://github.com/insung3511/human-detection">여기에</a> 작성해두었다.
 
 # feature_match
-최근에 3D Reconsturction에 관심이 생겨서 이것저것 해보고 있는데 feature match을 먼저 해야하는거 같아서 시작하게 되었다. 이에 대한 내용은 나중에 좀 더 자세히 작성할 예정.
+최근에 3D Reconsturction에 관심이 생겨서 이것저것 해보고 있는데 feature match을 먼저 해야하는거 같아서 시작하게 되었다.
+```.
+├── feature_book
+│   ├── exam_feature_match.py
+│   ├── feature_match.py
+│   ├── feature_series
+│   │   ├── bfm.py
+│   │   └── images
+│   │       ├── ORGgraffiti.jpg
+│   │       ├── ORGmy_room.jpg
+│   │       ├── ORGwall_and_paper.jpg
+│   │       ├── PAGcarhartt_patch.jpg
+│   │       ├── PAGmy_room_big.jpg
+│   │       ├── PAGmy_room_box.jpg
+│   │       ├── PAGwall_and_paper.jpg
+│   │       ├── box.png
+│   │       └── box_in_scene.png
+│   ├── images
+│   └── test_images
+│       ├── ORGgraffiti.jpg
+│       ├── ORGmy_room.jpg
+│       ├── ORGwall_and_paper.jpg
+│       ├── PAGcarhartt_patch.jpg
+│       ├── PAGmy_room_big.jpg
+│       ├── PAGmy_room_box.jpg
+│       ├── PAGwall_and_paper.jpg
+│       ├── box.png
+│       └── box_in_scene.png
+├── feature_series
+│   ├── README.md
+│   ├── __pycache__
+│   │   └── get_image.cpython-39.pyc
+│   ├── bfm_and_sift.py
+│   ├── flann_and_orb.py
+│   ├── flann_and_sift.py
+│   ├── flann_and_surf.py
+│   └── get_image.py
+└── images
+    ├── ORGgraffiti.jpg
+    ├── ORGmy_room.jpg
+    ├── ORGwall_and_paper.jpg
+    ├── PAGcarhartt_patch.jpg
+    ├── PAGmy_room_big.jpg
+    ├── PAGmy_room_box.jpg
+    └── PAGwall_and_paper.jpg
+
+8 directories, 35 files
+```
+BFM을 시작으로 SURF, ORB, SIFT 등 여러 Feature Matching에 대해서 공부를 하고 있다. 이에 대한 내용 또한 [나의 블로그](http://insung3511.github.io) 에 적어가면서 지속적으로 정리할 예정이다. **많관부~**
 
 # 이게 왜 안되는데 이것아. 
 참 나만 그런건지 모르겠다. openCV 정말 좋은 라이브러리 이다. 정말로. 무거운 만큼, 설치하는데 힘든 만큼 쓸일은 많다. 그런데 개발 환경에 따른 차이가 존재 하는 것 같다. 허ㅓ어ㅓㅓㅇ..ㅇㄹ
 안된다면 에러문을 모두 복사하지 말고 에러에 마지막 줄만 복사해서 구글 검색을 해보자. 이 말이 이해가 안된다면 좀 알아서 찾아봐라. 
 
-## P.s.
+## P.S.
 개인적으로는 이 저장소의 코드를 참고하면서 <a href="https://github.com/insung3511/human-detection"> human-detection </a> 저장소도 한번 들러 보는 것을 추천한다. 사람 인식에만 열정을 쏟아부어 공부한 흔적들이 고이 담겨 있다. 한번 꼭 봐주시길.. ~~Plz~~
