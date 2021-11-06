@@ -14,6 +14,7 @@ matcher = cv2.BFMatcher(cv2.NORM_L1, crossCheck=True)
 matches = matcher.match(desc1, desc2)
 res = cv2.drawMatches(org_img, kp1, fea_img, kp2, matches, None, flags=cv2.DRAW_MATCHES_FLAGS_NOT_DRAW_SINGLE_POINTS)
 
+print("Predict: ",matches[0].distance)
 cv2.imshow('BFMatcher + SIFT', res)
 cv2.waitKey()
 cv2.destroyAllWindows()
