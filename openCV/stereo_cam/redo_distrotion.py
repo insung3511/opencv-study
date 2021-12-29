@@ -31,6 +31,7 @@ for f_name in images:
 
 ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
 img = cv2.imread('calibration_img/left12.jpg')
+img12 = cv2.imread('calibration_img/left12.jpg')
 h,w = img.shape[:2]
 newcameramtx, roi = cv2.getOptimalNewCameraMatrix(mtx, dist, (w, h), 1, (w, h))
 
@@ -38,6 +39,10 @@ dst = cv2.undistort(img, mtx, dist, None, newcameramtx)
 
 x, y, w, h = roi
 dst = dst[y:y+h, x:x+w]
+cv2.imshow('Calibration', dst)
+cv2.waitKey(0)
+cv2.imshow('left12.jpg', img12)
+
 cv2.imwrite('calibresult.jpg', dst)
 
 cv2.destroyAllWindows()
