@@ -6,7 +6,7 @@ openCV를 깊이 다뤄 본적이 없는거 같아서 openCV를 다시 공부 �
 .
 ├── README.md
 └── openCV
-    ├── Basic\ of\ Basic
+    ├── Basic of Basic
     │   ├── opencv_blur.py
     │   ├── opencv_circleDraw.py
     │   ├── opencv_cropimage.py
@@ -17,7 +17,7 @@ openCV를 깊이 다뤄 본적이 없는거 같아서 openCV를 다시 공부 �
     │   ├── opencv_resizingImage.py
     │   ├── opencv_rotate.py
     │   └── opencv_rotatedSize.py
-    ├── Basic\ of\ Middle
+    ├── Basic of Middle
     │   ├── opencv_changeBlack.py
     │   ├── opencv_edgeDetection.py
     │   ├── opencv_objContuer.py
@@ -64,7 +64,6 @@ openCV를 깊이 다뤄 본적이 없는거 같아서 openCV를 다시 공부 �
     │   │   │       ├── PAGwall_and_paper.jpg
     │   │   │       ├── box.png
     │   │   │       └── box_in_scene.png
-    │   │   ├── images
     │   │   └── test_images
     │   │       ├── ORGgraffiti.jpg
     │   │       ├── ORGmy_room.jpg
@@ -92,14 +91,32 @@ openCV를 깊이 다뤄 본적이 없는거 같아서 openCV를 다시 공부 �
     │       ├── PAGmy_room_big.jpg
     │       ├── PAGmy_room_box.jpg
     │       └── PAGwall_and_paper.jpg
-    └── pictures
-        ├── boradcast.jpg
-        ├── clothes.jpg
-        └── rgb.png
+    ├── pictures
+    │   ├── boradcast.jpg
+    │   ├── clothes.jpg
+    │   └── rgb.png
+    └── stereo_cam
+        ├── calibration_img
+        │   ├── left01.jpg
+        │   ├── left02.jpg
+        │   ├── left03.jpg
+        │   ├── left04.jpg
+        │   ├── left05.jpg
+        │   ├── left06.jpg
+        │   ├── left07.jpg
+        │   ├── left08.jpg
+        │   ├── left09.jpg
+        │   ├── left11.jpg
+        │   ├── left12.jpg
+        │   ├── left13.jpg
+        │   └── left14.jpg
+        ├── calibresult.jpg
+        ├── cam_calibration.py
+        └── redo_distrotion.py
 
-17 directories, 75 files
+18 directories, 91 files
 </pre>
-Last Updated: Nov.7.2021
+Last Updated: Mar.31.2022
 
 # Basic of Basic
 <pre>
