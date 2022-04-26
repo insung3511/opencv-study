@@ -1,5 +1,5 @@
 {
     "python.pythonPath": "/usr/local/opt/python/bin/python3.7",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "GitHub Dark Dimmed"
+    "workbench.colorTheme": "Dracula"
 }
